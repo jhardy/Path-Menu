@@ -15,7 +15,7 @@ $arc: 90;
   $radius: 260;
   $angle: $arc/$num;
 
-  //cycel through each angle
+  //cycle through each angle
   @for $i from 1 through $num {
     $unit: ($i - 1) * $angle;
     $radians: $unit * (pi()/180);
