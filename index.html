@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+  <meta charset="UTF-8">
+  <title>Path Nav</title>
+  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+  <nav id="path_nav">
+    <a href="#" id="path_nav_expand">
+      <div id="x">
+        <div class="vert"></div>
+        <div class="horz"></div>
+      </div>
+    </a>
+    <ul>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+    </ul>
+  </nav>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+
+      var pathNav = $("#path_nav"),
+          expander = $("#path_nav_expand");
+
+      expander.click(function(e) {
+        e.preventDefault();
+        pathNav.toggleClass("active");
+      })
+
+    });
+  </script>
+</body>
+</html>

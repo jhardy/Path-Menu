@@ -1,0 +1,297 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+#path_nav {
+  position: relative;
+  top: 450px;
+  left: 550px;
+}
+#path_nav a {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border: solid 5px #fff;
+  background: #44403d;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
+  -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
+  -moz-border-radius: 2.6em;
+  -webkit-border-radius: 2.6em;
+  -o-border-radius: 2.6em;
+  -ms-border-radius: 2.6em;
+  -khtml-border-radius: 2.6em;
+  border-radius: 2.6em;
+  color: #fff;
+  text-align: center;
+  line-height: 3em;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+#path_nav li {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 0;
+}
+#path_nav li:nth-child(1) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0.175s;
+  -webkit-transition-delay: 0.175s;
+  -o-transition-delay: 0.175s;
+  transition-delay: 0.175s;
+}
+#path_nav li:nth-child(2) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0.14s;
+  -webkit-transition-delay: 0.14s;
+  -o-transition-delay: 0.14s;
+  transition-delay: 0.14s;
+}
+#path_nav li:nth-child(3) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0.105s;
+  -webkit-transition-delay: 0.105s;
+  -o-transition-delay: 0.105s;
+  transition-delay: 0.105s;
+}
+#path_nav li:nth-child(4) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0.07s;
+  -webkit-transition-delay: 0.07s;
+  -o-transition-delay: 0.07s;
+  transition-delay: 0.07s;
+}
+#path_nav li:nth-child(5) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0.035s;
+  -webkit-transition-delay: 0.035s;
+  -o-transition-delay: 0.035s;
+  transition-delay: 0.035s;
+}
+#path_nav li:nth-child(6) {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+#path_nav #path_nav_expand {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e85839), color-stop(49%, #e64e30), color-stop(50%, #ce2c16));
+  background-image: -webkit-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
+  background-image: -moz-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
+  background-image: -o-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
+  background-image: -ms-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
+  background-image: linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+#path_nav #path_nav_expand #x {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+#path_nav #path_nav_expand #x .vert, #path_nav #path_nav_expand #x .horz {
+  width: 10px;
+  height: 40px;
+  background: #fff;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  position: absolute;
+  top: 0px;
+  left: 15px;
+}
+#path_nav #path_nav_expand #x .horz {
+  width: 40px;
+  height: 10px;
+  top: 15px;
+  left: 0px;
+}
+#path_nav.active li {
+  -moz-transform: rotate(1800deg);
+  -webkit-transform: rotate(1800deg);
+  -o-transform: rotate(1800deg);
+  -ms-transform: rotate(1800deg);
+  transform: rotate(1800deg);
+}
+#path_nav.active li:nth-child(1) {
+  left: 0px;
+  top: -180px;
+}
+#path_nav.active li:nth-child(2) {
+  left: 61.293px;
+  top: -171.141px;
+}
+#path_nav.active li:nth-child(3) {
+  left: 115.0px;
+  top: -145.167px;
+}
+#path_nav.active li:nth-child(4) {
+  left: 155.848px;
+  top: -103.848px;
+}
+#path_nav.active li:nth-child(5) {
+  left: 180.167px;
+  top: -50.0px;
+}
+#path_nav.active li:nth-child(6) {
+  left: 191.141px;
+  top: 12.707px;
+}
+#path_nav.active #x {
+  -moz-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}

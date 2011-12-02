@@ -1,0 +1,101 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "ceaser-easing";
+@import "compass/css3";
+
+$num: 6;
+$arc: 90;
+
+// calculate position for outer circles on arc. Someone better at math can probably do a better job.
+@mixin spread($num, $arc) {
+  $radius: 260;
+  $angle: $arc/$num;
+
+  @for $i from 1 through $num {
+    $unit: ($i - 1) * $angle;
+    $radians: $unit * (pi()/180);
+    $sin: sin($radians);
+    $cos: cos($radians);
+
+    &:nth-child(#{$i}) {
+      left:  ($sin  * $radius)  - (round($sin * 10) * $i) +  px;
+      top: -($cos * $radius) + 80 + px;
+
+    }
+  }
+}
+
+
+#path_nav {
+  position: relative;
+  top: 450px;
+  left: 550px;
+
+  a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    border: solid 5px #fff;
+    background: #44403d;
+    @include box-shadow(0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px rgba(0, 0, 0, 1));
+    @include border-radius(2.6em);
+    color: #fff;
+    text-align: center;
+    line-height: 3em;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+  }
+
+  li {
+    position: absolute;
+    top:  8px;
+    left: 8px;
+    z-index: 0;
+
+    @for $i from 1 through $num {
+       &:nth-child(#{$i}) {
+         @include transition("all", .3s, ceaser("easeOutBack"), ($num - $i) * 0.035s);
+       }
+    }
+  }
+
+  #path_nav_expand {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    @include linear-gradient(color-stops(#e85839, #e64e30 49%, #ce2c16 50%));
+    @include box-shadow(0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px darken(#ce2c16, 10%), inset 0 2px 2px rgba(255, 255, 255, 0.5));
+    z-index: 1000;
+
+    #x {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      top: 10px;
+      left: 10px;
+      @include transition("all", .4s);
+
+      .vert { width: 10px; height: 40px; background: #fff; @include border-radius(2px); position: absolute; top: 0px; left: 15px;}
+      .horz { @extend .vert; width: 40px; height: 10px; top: 15px; left: 0px;}
+
+    }
+  }
+
+  &.active {
+    li {
+      @include transform(rotate(1800deg));
+      @include spread;
+    }
+
+    #x {
+      @include transform-origin(center, center);
+      @include rotate(-45deg);
+    }
+  }
+}
