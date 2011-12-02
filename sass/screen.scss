@@ -15,20 +15,20 @@ $arc: 90;
   $radius: 260;
   $angle: $arc/$num;
 
+  //cycel through each angle
   @for $i from 1 through $num {
     $unit: ($i - 1) * $angle;
     $radians: $unit * (pi()/180);
     $sin: sin($radians);
     $cos: cos($radians);
 
+    // position outer circles with a little offest
     &:nth-child(#{$i}) {
       left:  ($sin  * $radius)  - (round($sin * 10) * $i) +  px;
       top: -($cos * $radius) + 80 + px;
-
     }
   }
 }
-
 
 #path_nav {
   position: relative;
