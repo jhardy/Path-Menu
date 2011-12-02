@@ -1,0 +1,6 @@
+View the [demo](http://dl.dropbox.com/u/1274637/path_menu/index.html)
+
+Quick recreation of the path flyout menu built with compass/sass/html. This has not been thoroughly browser tested and was built just for fun.
+I plan on adding some bounce physics to the menu soon.
+
+
