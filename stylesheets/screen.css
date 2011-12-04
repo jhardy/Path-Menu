@@ -59,39 +59,53 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 #path_nav {
-  position: relative;
-  top: 450px;
-  left: 550px;
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
 }
 #path_nav a {
+  position: relative;
+  z-index: 1;
   display: block;
-  width: 45px;
-  height: 45px;
-  border: solid 5px #fff;
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  border: 6px solid white;
   background: #44403d;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
-  -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px black;
-  -moz-border-radius: 2.6em;
-  -webkit-border-radius: 2.6em;
-  -o-border-radius: 2.6em;
-  -ms-border-radius: 2.6em;
-  -khtml-border-radius: 2.6em;
-  border-radius: 2.6em;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  border-radius: 50%;
   color: #fff;
   text-align: center;
-  line-height: 3em;
   font-weight: bold;
   font-size: 16px;
   font-family: sans-serif;
   text-decoration: none;
+  -moz-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  -o-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+}
+#path_nav.active a {
+  -moz-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  -o-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
+}
+#path_nav ul {
+  position: absolute;
+  z-index: 0;
+  top: 8.5px;
+  left: 8.5px;
 }
 #path_nav li {
   position: absolute;
-  top: 8px;
-  left: 8px;
   z-index: 0;
+  top: 0;
+  left: 0;
 }
 #path_nav li:nth-child(1) {
   -moz-transition-property: all;
@@ -202,39 +216,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   transition-delay: 0s;
 }
 #path_nav #path_nav_expand {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e85839), color-stop(49%, #e64e30), color-stop(50%, #ce2c16));
-  background-image: -webkit-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
-  background-image: -moz-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
-  background-image: -o-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
-  background-image: -ms-linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
-  background-image: linear-gradient(top, #e85839, #e64e30 49%, #ce2c16 50%);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
-  -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px #a02211, inset 0 2px 2px rgba(255, 255, 255, 0.5);
-  z-index: 1000;
-}
-#path_nav #path_nav_expand #x {
-  width: 40px;
-  height: 40px;
   position: relative;
-  top: 10px;
-  left: 10px;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  width: 68px;
+  height: 68px;
+  line-height: 68px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e85638), color-stop(50%, #e74e2f), color-stop(50%, #de3b1a));
+  background: -webkit-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
+  background: -moz-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
+  background: -o-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
+  background: -ms-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
+  background: linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
+  -moz-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  -o-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
 }
-#path_nav #path_nav_expand #x .vert, #path_nav #path_nav_expand #x .horz {
-  width: 10px;
-  height: 40px;
+#path_nav #path_nav_expand #cross {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#path_nav #path_nav_expand #cross #cross-h,
+#path_nav #path_nav_expand #cross #cross-v {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   background: #fff;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -242,15 +252,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  position: absolute;
-  top: 0px;
-  left: 15px;
 }
-#path_nav #path_nav_expand #x .horz {
+#path_nav #path_nav_expand #cross #cross-h {
+  width: 8px;
+  margin-left: -4px;
+  height: 40px;
+  margin-top: -20px;
+}
+#path_nav #path_nav_expand #cross #cross-v {
   width: 40px;
-  height: 10px;
-  top: 15px;
-  left: 0px;
+  margin-left: -20px;
+  height: 8px;
+  margin-top: -4px;
 }
 #path_nav.active li {
   -moz-transform: rotate(1800deg);
@@ -258,37 +271,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transform: rotate(1800deg);
   -ms-transform: rotate(1800deg);
   transform: rotate(1800deg);
+  /*
+  $radius: 260;
+  $angle: $arc/$nb-items;
+*/
 }
 #path_nav.active li:nth-child(1) {
   left: 0px;
-  top: -180px;
+  top: -265px;
 }
 #path_nav.active li:nth-child(2) {
-  left: 61.293px;
-  top: -171.141px;
+  left: 82px;
+  top: -252px;
 }
 #path_nav.active li:nth-child(3) {
-  left: 115.0px;
-  top: -145.167px;
+  left: 156px;
+  top: -214px;
 }
 #path_nav.active li:nth-child(4) {
-  left: 155.848px;
-  top: -103.848px;
+  left: 214px;
+  top: -156px;
 }
 #path_nav.active li:nth-child(5) {
-  left: 180.167px;
-  top: -50.0px;
+  left: 252px;
+  top: -82px;
 }
 #path_nav.active li:nth-child(6) {
-  left: 191.141px;
-  top: 12.707px;
+  left: 265px;
+  top: 0px;
 }
-#path_nav.active #x {
-  -moz-transform-origin: center center;
-  -webkit-transform-origin: center center;
-  -o-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
+#path_nav.active #cross {
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
