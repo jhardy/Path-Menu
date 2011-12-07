@@ -1,7 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -58,12 +54,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-#path_nav {
+.path-nav {
+  -moz-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
   position: fixed;
+}
+.path-nav.path-nav-bottom-left {
   bottom: 26px;
   left: 26px;
 }
-#path_nav a {
+.path-nav.path-nav-top-right {
+  top: 26px;
+  right: 26px;
+}
+.path-nav a {
   position: relative;
   z-index: 1;
   display: block;
@@ -89,25 +96,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
 }
-#path_nav.active a {
+.path-nav.active a {
   -moz-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
   -o-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
   box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 0 2px rgba(0, 0, 0, 0.8);
 }
-#path_nav ul {
+.path-nav ul {
   position: absolute;
   z-index: 0;
   top: 8.5px;
   left: 8.5px;
 }
-#path_nav li {
+.path-nav li {
   position: absolute;
   z-index: 0;
   top: 0;
   left: 0;
 }
-#path_nav li:nth-child(1) {
+.path-nav li:nth-child(1) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -125,7 +132,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0.175s;
   transition-delay: 0.175s;
 }
-#path_nav li:nth-child(2) {
+.path-nav li:nth-child(2) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -143,7 +150,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0.14s;
   transition-delay: 0.14s;
 }
-#path_nav li:nth-child(3) {
+.path-nav li:nth-child(3) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -161,7 +168,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0.105s;
   transition-delay: 0.105s;
 }
-#path_nav li:nth-child(4) {
+.path-nav li:nth-child(4) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -179,7 +186,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0.07s;
   transition-delay: 0.07s;
 }
-#path_nav li:nth-child(5) {
+.path-nav li:nth-child(5) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -197,7 +204,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0.035s;
   transition-delay: 0.035s;
 }
-#path_nav li:nth-child(6) {
+.path-nav li:nth-child(6) {
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -215,7 +222,70 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0s;
   transition-delay: 0s;
 }
-#path_nav #path_nav_expand {
+.path-nav.active li {
+  -moz-transform: rotate(1800deg);
+  -webkit-transform: rotate(1800deg);
+  -o-transform: rotate(1800deg);
+  -ms-transform: rotate(1800deg);
+  transform: rotate(1800deg);
+}
+.path-nav.active #cross {
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(1) {
+  top: -265px;
+  left: 0px;
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(2) {
+  top: -252px;
+  left: 82px;
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(3) {
+  top: -214px;
+  left: 156px;
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(4) {
+  top: -156px;
+  left: 214px;
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(5) {
+  top: -82px;
+  left: 252px;
+}
+.path-nav.active.path-nav-bottom-left li:nth-child(6) {
+  top: 0px;
+  left: 265px;
+}
+.path-nav.active.path-nav-top-right li:nth-child(1) {
+  top: 265px;
+  left: 0px;
+}
+.path-nav.active.path-nav-top-right li:nth-child(2) {
+  top: 252px;
+  left: -82px;
+}
+.path-nav.active.path-nav-top-right li:nth-child(3) {
+  top: 214px;
+  left: -156px;
+}
+.path-nav.active.path-nav-top-right li:nth-child(4) {
+  top: 156px;
+  left: -214px;
+}
+.path-nav.active.path-nav-top-right li:nth-child(5) {
+  top: 82px;
+  left: -252px;
+}
+.path-nav .path-nav-expander {
   position: relative;
   width: 68px;
   height: 68px;
@@ -231,7 +301,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
   box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
 }
-#path_nav #path_nav_expand #cross {
+.path-nav .path-nav-expander #cross {
   position: relative;
   width: 68px;
   height: 68px;
@@ -240,8 +310,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-#path_nav #path_nav_expand #cross #cross-h,
-#path_nav #path_nav_expand #cross #cross-v {
+.path-nav .path-nav-expander #cross #cross-h,
+.path-nav .path-nav-expander #cross #cross-v {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -253,62 +323,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -khtml-border-radius: 2px;
   border-radius: 2px;
 }
-#path_nav #path_nav_expand #cross #cross-h {
+.path-nav .path-nav-expander #cross #cross-h {
   width: 8px;
   margin-left: -4px;
   height: 40px;
   margin-top: -20px;
 }
-#path_nav #path_nav_expand #cross #cross-v {
+.path-nav .path-nav-expander #cross #cross-v {
   width: 40px;
   margin-left: -20px;
   height: 8px;
   margin-top: -4px;
 }
-#path_nav.active li {
-  -moz-transform: rotate(1800deg);
-  -webkit-transform: rotate(1800deg);
-  -o-transform: rotate(1800deg);
-  -ms-transform: rotate(1800deg);
-  transform: rotate(1800deg);
-  /*
-  $radius: 260;
-  $angle: $arc/$nb-items;
-*/
-}
-#path_nav.active li:nth-child(1) {
-  left: 0px;
-  top: -265px;
-}
-#path_nav.active li:nth-child(2) {
-  left: 82px;
-  top: -252px;
-}
-#path_nav.active li:nth-child(3) {
-  left: 156px;
-  top: -214px;
-}
-#path_nav.active li:nth-child(4) {
-  left: 214px;
-  top: -156px;
-}
-#path_nav.active li:nth-child(5) {
-  left: 252px;
-  top: -82px;
-}
-#path_nav.active li:nth-child(6) {
-  left: 265px;
-  top: 0px;
-}
-#path_nav.active #cross {
-  -moz-transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+
+.path-nav-top-right .path-nav-expander {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #143da5), color-stop(50%, #133a9c), color-stop(50%, #103081));
+  background: -webkit-linear-gradient(#143da5, #133a9c 50%, #103081 50%);
+  background: -moz-linear-gradient(#143da5, #133a9c 50%, #103081 50%);
+  background: -o-linear-gradient(#143da5, #133a9c 50%, #103081 50%);
+  background: -ms-linear-gradient(#143da5, #133a9c 50%, #103081 50%);
+  background: linear-gradient(#143da5, #133a9c 50%, #103081 50%);
 }

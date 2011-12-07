@@ -1,8 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 @import "ceaser-easing";
 @import "compass/css3";
@@ -49,11 +44,24 @@ $angle: $arc/($nb-items - 1 );  // angle between items
 $space: $button-distance + $button-width + ($main-button-width /4); // a value in pixel. It's the space between the red circle and the items
 
 // calculate position for outer circles on arc. Someone better at math can probably do a better job.
-@mixin spread($nb-items, $arc) {
-  /*
-  $radius: 260;
-  $angle: $arc/$nb-items;
-*/
+@mixin spread($nb-items, $arc, $vertical: top, $horizontal: left)
+{
+@if ($vertical==top)
+{
+	$vertical: -1;
+}
+@else
+{
+	$vertical: 1;
+}
+@if ($horizontal!=left)
+{
+	$horizontal: -1;
+}
+@else
+{
+	$horizontal: 1;
+}
   //cycle through each angle
   @for $i from 1 through $nb-items
   {
@@ -62,18 +70,31 @@ $space: $button-distance + $button-width + ($main-button-width /4); // a value i
     $cos: cos($radians);
 
     // position outer circles with a little offest
-    &:nth-child(#{$i}) {
-      left:  round($space * $sin);
-      top: round(-$space * $cos);
+    &:nth-child(#{$i})
+    {
+      top: round($space * $cos * $vertical);
+      left:  round($space * $sin * $horizontal);
     }
   }
 }
 
-#path_nav
+.path-nav
 {
+  @include transform(translateZ(0)); // GPU accelerated
+        
   position: fixed;
+  
+  &.path-nav-bottom-left
+  {
   bottom: $button-width/2;
   left: $button-width/2;
+  }
+  
+  &.path-nav-top-right
+  {
+  top: $button-width/2;
+  right: $button-width/2;
+  }
 
   // all item
   a {
@@ -115,15 +136,14 @@ $space: $button-distance + $button-width + ($main-button-width /4); // a value i
   ul {
     position: absolute;
     z-index: 0;
-    top: $main-button-width/8;
+        top: $main-button-width/8;
     left: $main-button-width/8;
   }
+
 
   li {
     position: absolute;
     z-index: 0;
-    top: 0;
-    left: 0;
 
     @for $i from 1 through $nb-items {
        &:nth-child(#{$i}) {
@@ -132,9 +152,45 @@ $space: $button-distance + $button-width + ($main-button-width /4); // a value i
          // @todo remove boucy effect on close
        }
     }
+    
+
+    top: 0;
+    left: 0;
   }
 
-  #path_nav_expand
+  &.active
+  {
+    li
+    {
+      @include transform(rotate(1800deg));
+    }
+
+    #cross
+    {
+      @include transform-origin(50%, 50%);
+      @include rotate(-45deg);
+
+      // @todo add grey overlay effect during tap
+    }
+  }
+  
+  &.active.path-nav-bottom-left
+  {
+    li
+    {
+      @include spread;
+    }
+  }
+  
+  &.active.path-nav-top-right
+  {
+    li
+    {
+      @include spread($nb-items: 5, $vertical: bottom, $horizontal: right);
+    }
+  }
+  
+  .path-nav-expander
   {
     position: relative;
 
@@ -143,6 +199,7 @@ $space: $button-distance + $button-width + ($main-button-width /4); // a value i
     line-height: $main-button-width;
 
     @include background(linear-gradient($background-color, darken($background-color, 2%) 50%, darken($background-color, 8%) 50%));
+
     @include box-shadow(
         $box-shadow-true-shadow,
         $box-shadow-tiny-border,
@@ -185,21 +242,10 @@ $space: $button-distance + $button-width + ($main-button-width /4); // a value i
             }
     }
   }
-
-  &.active
-  {
-    li
-    {
-      @include transform(rotate(1800deg));
-      @include spread;
-    }
-
-    #cross
-    {
-      @include transform-origin(50%, 50%);
-      @include rotate(-45deg);
-
-      // @todo add grey overlay effect during tap
-    }
-  }
 }
+
+	.path-nav-top-right .path-nav-expander
+  	{
+    	$background-color: #143da5;
+    	@include background(linear-gradient($background-color, darken($background-color, 2%) 50%, darken($background-color, 8%) 50%));
+    }
