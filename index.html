@@ -1,41 +1,54 @@
-<!DOCTYPE HTML>
-<html lang="ru-RU">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Path Nav</title>
-  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Path Nav</title>
+    <link href="stylesheets/screen.css" rel="stylesheet"/>
 
 </head>
 <body>
-  <nav id="path_nav">
-    <a href="#" id="path_nav_expand">
-      <div id="x">
-        <div class="vert"></div>
-        <div class="horz"></div>
-      </div>
+<nav id="menu" class="path-nav path-nav-bottom-left">
+    <a href="#menu" class="path-nav-expander">
+        <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
+        <div class="cross">
+            <div class="cross-h"></div>
+            <div class="cross-v"></div>
+        </div>
     </a>
+    <a href="#" class="path-nav-close"></a>
     <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
     </ul>
-  </nav>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(function() {
+</nav>
 
-      var pathNav = $("#path_nav"),
-          expander = $("#path_nav_expand");
+<nav id="menu2" class="path-nav path-nav-top-right">
+    <a href="#menu2" class="path-nav-expander">
+        <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
+        <div class="cross">
+            <div class="cross-h"></div>
+            <div class="cross-v"></div>
+        </div>
+    </a>
+    <a href="#" class="path-nav-close"></a>
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
+</nav>
 
-      expander.click(function(e) {
-        e.preventDefault();
-        pathNav.toggleClass("active");
-      })
-
-    });
-  </script>
+<script>
+  var _gaq=[["_setAccount","UA-1716762-10"],["_trackPageview"],["_trackPageLoadTime"]];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+  g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+  s.parentNode.insertBefore(g,s)}(document,"script"));
+</script>
 </body>
 </html>

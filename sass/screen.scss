@@ -1,101 +1,278 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 @import "ceaser-easing";
 @import "compass/css3";
 
-$num: 6;
+// original size from Path.app measured from iOS screenshot
+$main-button-full-width: 84px;
+$button-border-size: 6px;
+$button-box-shadow-spread: 2px;
+$main-button-width: $main-button-full-width - $button-border-size*2 - $button-box-shadow-spread*2;
+$button-width: $main-button-width - $button-border-size*2 - $button-box-shadow-spread*2;
+$button-distance: 196px;
+$cross-width: 8px;
+$cross-height: 40px;
+$cross-radius: 2px;
+
+$retina: true; // nice for dev
+
+@if ($retina==false)
+{
+    // divide/2 because of retina display;
+    $main-button-full-width: $main-button-full-width / 2 ;
+    $button-border-size: $button-border-size / 2;
+    $button-box-shadow-spread: $button-box-shadow-spread / 2 ;
+    $main-button-width: $main-button-width / 2 ;
+    $button-width: $button-width / 2 ;
+    $cross-width: $cross-width / 2;
+    $cross-height: $cross-height / 2;
+    //$cross-radius: $cross-radius / 2;
+}
+
+$button-speed: .3s;
+$cross-speed: .2s;
+
+$background-color: #e85638;
+
+$box-shadow-true-shadow: 0 .2em 1em $button-box-shadow-spread rgba(#000, .4);
+$box-shadow-tiny-border: 0 0 0 $button-box-shadow-spread rgba(#000, .25);
+$box-shadow-inset-for-menu-trigger: inset 0 2px 2px rgba(255, 255, 255, 0.5);
+$box-shadow-inset-for-menu-item: inset 0 0 2px rgba(#000, .8);
+
+$nb-items: 6;
 $arc: 90;
+$angle: $arc/($nb-items - 1 );  // angle between items
+$space: $button-distance + $button-width + ($main-button-width /4); // a value in pixel. It's the space between the red circle and the items
 
 // calculate position for outer circles on arc. Someone better at math can probably do a better job.
-@mixin spread($num, $arc) {
-  $radius: 260;
-  $angle: $arc/$num;
-
-  //cycle through each angle
-  @for $i from 1 through $num {
-    $unit: ($i - 1) * $angle;
-    $radians: $unit * (pi()/180);
-    $sin: sin($radians);
-    $cos: cos($radians);
-
-    // position outer circles with a little offest
-    &:nth-child(#{$i}) {
-      left:  ($sin  * $radius)  - (round($sin * 10) * $i) +  px;
-      top: -($cos * $radius) + 80 + px;
+@mixin spread($nb-items, $arc, $vertical: top, $horizontal: left)
+{
+    @if ($vertical==top)
+    {
+        $vertical: -1;
     }
-  }
+    @else
+    {
+        $vertical: 1;
+    }
+    @if ($horizontal!=left)
+    {
+        $horizontal: -1;
+    }
+    @else
+    {
+        $horizontal: 1;
+    }
+    //cycle through each angle
+    @for $i from 1 through $nb-items
+    {
+        $radians: ( $angle * ($i - 1) ) * (pi()/180);
+        $sin: sin($radians);
+        $cos: cos($radians);
+
+        // position outer circles with a little offest
+        &:nth-child(#{$i})
+        {
+          top: round($space * $cos * $vertical);
+          left:  round($space * $sin * $horizontal);
+        }
+    }
 }
 
-#path_nav {
-  position: relative;
-  top: 450px;
-  left: 550px;
-
-  a {
-    display: block;
-    width: 45px;
-    height: 45px;
-    border: solid 5px #fff;
-    background: #44403d;
-    @include box-shadow(0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 2px rgba(0, 0, 0, 1));
-    @include border-radius(2.6em);
-    color: #fff;
-    text-align: center;
-    line-height: 3em;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-decoration: none;
-  }
-
-  li {
-    position: absolute;
-    top:  8px;
-    left: 8px;
-    z-index: 0;
-
-    @for $i from 1 through $num {
-       &:nth-child(#{$i}) {
-         @include transition("all", .3s, ceaser("easeOutBack"), ($num - $i) * 0.035s);
-       }
-    }
-  }
-
-  #path_nav_expand {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    @include linear-gradient(color-stops(#e85839, #e64e30 49%, #ce2c16 50%));
-    @include box-shadow(0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 1px darken(#ce2c16, 10%), inset 0 2px 2px rgba(255, 255, 255, 0.5));
-    z-index: 1000;
-
-    #x {
-      width: 40px;
-      height: 40px;
-      position: relative;
-      top: 10px;
-      left: 10px;
-      @include transition("all", .4s);
-
-      .vert { width: 10px; height: 40px; background: #fff; @include border-radius(2px); position: absolute; top: 0px; left: 15px;}
-      .horz { @extend .vert; width: 40px; height: 10px; top: 15px; left: 0px;}
-
-    }
-  }
-
-  &.active {
-    li {
-      @include transform(rotate(1800deg));
-      @include spread;
+.path-nav
+{
+    @include transform(translateZ(0)); // GPU accelerated
+        
+    position: fixed;
+  
+    &.path-nav-bottom-left
+    {
+        bottom: $button-width/2;
+        left: $button-width/2;
     }
 
-    #x {
-      @include transform-origin(center, center);
-      @include rotate(-45deg);
+    &.path-nav-top-right
+    {
+        top: $button-width/2;
+        right: $button-width/2;
     }
-  }
+
+    // all item
+    a
+    {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: $button-width;
+        height: $button-width;
+        line-height: $button-width;
+        border: $button-border-size solid #fff;
+        background: #44403d;
+        @include border-radius(50%);
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: sans-serif;
+        text-decoration: none;
+
+        @include box-shadow(
+            $box-shadow-tiny-border,
+            $box-shadow-inset-for-menu-item
+        );
+    }
+
+  // to prevent box-shadow addition
+    &.active
+    {
+        a
+        {
+            @include box-shadow(
+                $box-shadow-true-shadow,
+                $box-shadow-tiny-border,
+                $box-shadow-inset-for-menu-item
+            );
+        }
+    }
+
+    ul
+    {
+        position: absolute;
+        z-index: 0;
+        top: $main-button-width/8;
+        left: $main-button-width/8;
+    }
+
+    li
+    {
+        position: absolute;
+        z-index: 0;
+
+        @for $i from 1 through $nb-items
+        {
+            &:nth-child(#{$i})
+            {
+                @include transition(all, $button-speed, ceaser("easeOutBack"), ($nb-items - $i) * 0.035s);
+                // @todo remove boucy effect on close
+            }
+        }
+
+
+        top: 0;
+        left: 0;
+    }
+
+    &:target
+    {
+        li
+        {
+          @include transform(rotate(1800deg));
+        }
+
+        .cross
+        {
+          @include transform-origin(50%, 50%);
+          @include rotate(-45deg);
+
+          // @todo add grey overlay effect during tap
+        }
+    }
+  
+    &.path-nav-bottom-left:target
+    {
+        li
+        {
+          @include spread;
+        }
+    }
+  
+    &.path-nav-top-right:target
+    {
+        li
+        {
+          @include spread($nb-items: 5, $vertical: bottom, $horizontal: right);
+        }
+    }
+
+    .path-nav-expander,
+    .path-nav-close
+    {
+        z-index: 3;
+        width: $main-button-width;
+        height: $main-button-width;
+        line-height: $main-button-width;
+    }
+
+    .path-nav-close
+    {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: none;
+        //border: none;
+        outline: red;
+        @include box-shadow(0);
+    }
+
+    &:target
+    {
+        .path-nav-expander
+        {
+            z-index: 1;
+        }
+    }
+
+    .path-nav-expander
+    {
+        position: relative;
+
+        @include background(linear-gradient($background-color, darken($background-color, 2%) 50%, darken($background-color, 8%) 50%));
+
+        @include box-shadow(
+            $box-shadow-true-shadow,
+            $box-shadow-tiny-border,
+            $box-shadow-inset-for-menu-trigger
+        );
+
+        // see html markup for comment about "minimal" markup issue
+        .cross
+        {
+            position: relative;
+            width: $main-button-width;
+            height: $main-button-width;
+            @include transition(all $cross-speed);
+
+            .cross-h,//&:before,
+            .cross-v//&:after
+            {
+                //content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background: #fff;
+                @include border-radius($cross-radius);
+            }
+
+                .cross-h // &:before
+                {
+                    width: $cross-width;
+                    margin-left: -$cross-width/2;
+                    height: $cross-height;
+                    margin-top: -$cross-height/2;
+                }
+
+                .cross-v // &:after
+                {
+                    width: $cross-height;
+                    margin-left: -$cross-height/2;
+                    height: $cross-width;
+                    margin-top: -$cross-width/2;
+                }
+        }
+    }
 }
+    .path-nav-top-right .path-nav-expander
+    {
+        $background-color: #143da5;
+        @include background(linear-gradient($background-color, darken($background-color, 2%) 50%, darken($background-color, 8%) 50%));
+    }
