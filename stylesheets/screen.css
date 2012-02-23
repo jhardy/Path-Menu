@@ -222,14 +222,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition-delay: 0s;
   transition-delay: 0s;
 }
-.path-nav.active li {
+.path-nav:target li {
   -moz-transform: rotate(1800deg);
   -webkit-transform: rotate(1800deg);
   -o-transform: rotate(1800deg);
   -ms-transform: rotate(1800deg);
   transform: rotate(1800deg);
 }
-.path-nav.active #cross {
+.path-nav:target .cross {
   -moz-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
@@ -241,55 +241,74 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(1) {
+.path-nav.path-nav-bottom-left:target li:nth-child(1) {
   top: -265px;
   left: 0px;
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(2) {
+.path-nav.path-nav-bottom-left:target li:nth-child(2) {
   top: -252px;
   left: 82px;
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(3) {
+.path-nav.path-nav-bottom-left:target li:nth-child(3) {
   top: -214px;
   left: 156px;
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(4) {
+.path-nav.path-nav-bottom-left:target li:nth-child(4) {
   top: -156px;
   left: 214px;
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(5) {
+.path-nav.path-nav-bottom-left:target li:nth-child(5) {
   top: -82px;
   left: 252px;
 }
-.path-nav.active.path-nav-bottom-left li:nth-child(6) {
+.path-nav.path-nav-bottom-left:target li:nth-child(6) {
   top: 0px;
   left: 265px;
 }
-.path-nav.active.path-nav-top-right li:nth-child(1) {
+.path-nav.path-nav-top-right:target li:nth-child(1) {
   top: 265px;
   left: 0px;
 }
-.path-nav.active.path-nav-top-right li:nth-child(2) {
+.path-nav.path-nav-top-right:target li:nth-child(2) {
   top: 252px;
   left: -82px;
 }
-.path-nav.active.path-nav-top-right li:nth-child(3) {
+.path-nav.path-nav-top-right:target li:nth-child(3) {
   top: 214px;
   left: -156px;
 }
-.path-nav.active.path-nav-top-right li:nth-child(4) {
+.path-nav.path-nav-top-right:target li:nth-child(4) {
   top: 156px;
   left: -214px;
 }
-.path-nav.active.path-nav-top-right li:nth-child(5) {
+.path-nav.path-nav-top-right:target li:nth-child(5) {
   top: 82px;
   left: -252px;
 }
-.path-nav .path-nav-expander {
-  position: relative;
+.path-nav .path-nav-expander,
+.path-nav .path-nav-close {
+  z-index: 3;
   width: 68px;
   height: 68px;
   line-height: 68px;
+}
+.path-nav .path-nav-close {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  outline: red;
+  -moz-box-shadow: 0;
+  -webkit-box-shadow: 0;
+  -o-box-shadow: 0;
+  box-shadow: 0;
+}
+.path-nav:target .path-nav-expander {
+  z-index: 1;
+}
+.path-nav .path-nav-expander {
+  position: relative;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e85638), color-stop(50%, #e74e2f), color-stop(50%, #de3b1a));
   background: -webkit-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
   background: -moz-linear-gradient(#e85638, #e74e2f 50%, #de3b1a 50%);
@@ -301,7 +320,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
   box-shadow: 0 0.2em 1em 2px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(0, 0, 0, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.5);
 }
-.path-nav .path-nav-expander #cross {
+.path-nav .path-nav-expander .cross {
   position: relative;
   width: 68px;
   height: 68px;
@@ -310,8 +329,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-.path-nav .path-nav-expander #cross #cross-h,
-.path-nav .path-nav-expander #cross #cross-v {
+.path-nav .path-nav-expander .cross .cross-h,
+.path-nav .path-nav-expander .cross .cross-v {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -323,13 +342,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -khtml-border-radius: 2px;
   border-radius: 2px;
 }
-.path-nav .path-nav-expander #cross #cross-h {
+.path-nav .path-nav-expander .cross .cross-h {
   width: 8px;
   margin-left: -4px;
   height: 40px;
   margin-top: -20px;
 }
-.path-nav .path-nav-expander #cross #cross-v {
+.path-nav .path-nav-expander .cross .cross-v {
   width: 40px;
   margin-left: -20px;
   height: 8px;

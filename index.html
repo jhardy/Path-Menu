@@ -1,57 +1,47 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Path Nav</title>
-  <link href="stylesheets/screen.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Path Nav</title>
+    <link href="stylesheets/screen.css" rel="stylesheet"/>
 
 </head>
 <body>
-  <nav class="path-nav path-nav-bottom-left">
-    <a href="#" class="path-nav-expander">
-      <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
-      <div id="cross">
-          <div id="cross-h"></div>
-          <div id="cross-v"></div>
-      </div>
+<nav id="menu" class="path-nav path-nav-bottom-left">
+    <a href="#menu" class="path-nav-expander">
+        <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
+        <div class="cross">
+            <div class="cross-h"></div>
+            <div class="cross-v"></div>
+        </div>
     </a>
+    <a href="#" class="path-nav-close"></a>
     <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
     </ul>
-  </nav>
-  
-  <nav class="path-nav path-nav-top-right">
-    <a href="#" class="path-nav-expander">
-      <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
-      <div id="cross">
-          <div id="cross-h"></div>
-          <div id="cross-v"></div>
-      </div>
+</nav>
+
+<nav id="menu2" class="path-nav path-nav-top-right">
+    <a href="#menu2" class="path-nav-expander">
+        <!-- This cross markup is mandatory since only firefox support animation on pseudo content -->
+        <div class="cross">
+            <div class="cross-h"></div>
+            <div class="cross-v"></div>
+        </div>
     </a>
+    <a href="#" class="path-nav-close"></a>
     <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
     </ul>
-  </nav>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script >
-    $(function()
-    {
-      $(".path-nav-expander").bind('click', function(e)
-      {
-        e.preventDefault();
-        $(this).parent().toggleClass("active");
-      });
-    });
-  </script>
+</nav>
 </body>
 </html>
